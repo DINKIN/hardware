@@ -1,4 +1,0 @@
-hard
-====
-
-Hardware part
