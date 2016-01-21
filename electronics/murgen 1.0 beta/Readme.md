@@ -1,7 +1,26 @@
 # The Murgen Project
 _The hardware design process is fraught with pitfalls, from library component sketchiness, parts availability, erroneous data sheets, underestimates of complexity and long lead times. Designing good hardware on time, on budget and to specifications is like being in a knife fight. Hardware will cut you._
 
-Desc TBD
+### What is this project?
+
+This project is born from a fork from the [echOpen](echopen.org) project (which aims at providing a low cost, open source ultrasound tool for doctors), with a specific target of **providing a technological kit to allow scientists, academics, hackers, makers or OSH fans to hack their way to ultrasound imaging**.
+
+Today, **we have achieved the electronic design of the kit and are having it made by a PCB Assembly** – someone to actually assemble the probe, and we're waiting for a first prod so that **we can physically test it with our in house transducer**.
+
+That’s cool, and if you want to learn more (apart from this Readme), you can surf the internet and  :
+
+- Read the the [Blog](https://murgen.echopen.org) of the fork !
+- Explore [echOpen’s general wiki](echopen.org)
+- Or wander around the rest of our [GitHub repo](github.com/echopen)
+
+### Disclaimers
+**Disclaimer**: though an engineer, this project is the first of its sort, we never did something related. Bear with us, and the discovery process – we’re happy to learn on the way =)
+
+**Disclaimer #2**: ultrasound raises questions. In case you build a scanner, use caution and good sense!
+
+# TOC
+
+[TOC]
 
 # Project introduction
 ## Brief
@@ -12,9 +31,16 @@ Once it comes back from the transducer, one needs to cap it, amplify it, filter 
 
 As the data we have should have at least 16 imgs / sec, with 64 lines, the rate shall be around 120Mb/s, and to avoid the data transfer bottleneck (see Estimating datarates), we were thinking of leverage the capacities of raspberry (or beaglebone) and such to have shields/capes that can be used and connect through SPI for example to the raspberry where raw data can be processed, and image can be going out, hence a lower rate.
 
-## What is echOpen ?
+More could be read from [echOpen's challenge](http://echopen.org/index.php?title=Challenge:_the_echOpen_shield) on the wiki.
 
-TBD.
+## What is echOpen ?
+echopen  is an association who wants to update the stethoscope resting around the neck of doctors, using an open-source, low-cost take at echography - and to provide the academic and hackers community with a ultrasound testing platform, doctors with an echo-stethoscope.
+
+echOpen has to tackle community, research and medical challenges to get all the community around the same table and create the stethoscope of the future: instead of listening to a heart beating, you actually see its beats!
+
+Today, echOpen rests at the heart of Paris, in the historical Hotel-Dieu, with its 10-person core team as well as a community strong of designers, doctors, engineers, … and backed by several institutional actors in professional training, the hospitals (APHP), education (ENS, TelecomParis, …), electronics, and industry (we won for exemple a mentoring with Thales) .We are financially backed by philantropy and prizes we won. 
+
+Here, we developed a [first prototype](http://echopen.org/index.php?title=Category:Emile) as a proof-of-concept, and we are eager to move forward with an integrated device usable for the first clinical tests.
  
 ## Preliminary questions
 ### Why are we making this?
@@ -39,11 +65,28 @@ BBB investigation had started in September 2015, but following a meetup at echop
 **The objective is to get a first functional prototype by February 2015.**
 
 ## Technically
+### Principles of echography
+Basically, echography means plotting echoes. It means we have to create a sound pulse (2), use a good sensor (2), find a way to transform a 1D signal to a 2D image (3), listen to the echoes coming back, cleaning them and  processing them to create an image the way a bat would do (4), and to transmit them to a display (5). 5 steps.
+The present project aims at taking care of (1), (4) and (5) - meaning amm electronics related to the analogic part of the imaging.
+
 ### System Block Diagram
+
+![A full block diagram - Murgen will focus on B-mode imaging](http://echopen.org/images/d/db/15.jpg)
+
+### Data rates and key figures
+
+- We're aiming at **128 lines/image** may be enough at first - at **16 imgs/s** -- --- thats 2048 lines/s
+-- That's 488us per line
+- (15.77 cm x 2) / (154000 cm/s) = 204.805 us - that's 1024 pts at 5MHz
+-- That's **204.805 us** per line
+-- That's **283.5 us** of idle time
+- Final image is therefore **128*1024 px**
+-- 1024 pts for 15.77cm is 6.49px / mm
+-- That's 2.1Msps on average or 24Mbit/s.. borderline for data transfer on certain systems.
+
 ### Discussion of Essential Features/Trade-offs
-### Block-by-Block Breakdown
-### Function
-### Schematic block
+
+So far, the key issue is a compromise in terms of data output. It's interesting to see how to interface such data rates to a processing and display unit.
  
 ## Parts, ICs selection (and critical specs)
  
@@ -142,9 +185,8 @@ TBD // This part is to be update in a future update, as soon as we get the physi
 ## Errata
  
  
-# Discussions
- 
-Pending work 
+# Discussions 
+> Pending work - or refer to the [Discussions.md](Discussions.md) file.
 
 
 # People ! 
