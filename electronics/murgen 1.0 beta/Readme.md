@@ -5,16 +5,17 @@ _The hardware design process is fraught with pitfalls, from library component sk
 
 This project is born from a fork from the [echOpen](echopen.org) project (which aims at providing a low cost, open source ultrasound tool for doctors), with a specific target of **providing a technological kit to allow scientists, academics, hackers, makers or OSH fans to hack their way to ultrasound imaging**.
 
-Today, **we have achieved the electronic design of the kit and are having it made by a PCB Assembly** ñ someone to actually assemble the probe, and we're waiting for a first prod so that **we can physically test it with our in house transducer**.
+Today, **we have achieved the electronic design of the kit and are having it made by a PCB Assembly** ‚Äì someone to actually assemble the probe, and we're waiting for a first prod so that **we can physically test it with our in house transducer**.
 
-Thatís cool, and if you want to learn more (apart from this Readme), you can surf the internet and  :
+That‚Äôs cool, and if you want to learn more (apart from this Readme), you can surf the internet and  :
 
 - Read the the [Blog](https://murgen.echopen.org) of the fork !
-- Explore [echOpenís general wiki](echopen.org)
+- Explore [echOpen‚Äôs general wiki](echopen.org)
+- Suscribe to the mailing list at all @ murgen.echopen.org
 - Or wander around the rest of our [GitHub repo](github.com/echopen)
 
 ### Disclaimers
-**Disclaimer**: though an engineer, this project is the first of its sort, we never did something related. Bear with us, and the discovery process ñ weíre happy to learn on the way =)
+**Disclaimer**: though an engineer, this project is the first of its sort, we never did something related. Bear with us, and the discovery process ‚Äì we‚Äôre happy to learn on the way =)
 
 **Disclaimer #2**: ultrasound raises questions. In case you build a scanner, use caution and good sense!
 
@@ -26,7 +27,7 @@ Thatís cool, and if you want to learn more (apart from this Readme), you can sur
 ## Brief
 In October 2015, we were working on a open-source ultrasound imaging device, and had started to get some result. However, we were facing a bottleneck that is data acquisition and transfer.
 
-Roughly, the aim of the device is to excite a 3.5MHz piezo through a 100V or more, 0.2µs, signal to acquire a signal coming from the echoes.
+Roughly, the aim of the device is to excite a 3.5MHz piezo through a 100V or more, 0.2¬µs, signal to acquire a signal coming from the echoes.
 Once it comes back from the transducer, one needs to cap it, amplify it, filter it, apply a time variable gain to the signal, have it get through a high speed ADC (40MHz at least), and serve it to the the processing unit (through PINs, SPI, USB ?), possibly with a CPLD/FPGA (or DSP / microcontroler ?) in between.
 
 As the data we have should have at least 16 imgs / sec, with 64 lines, the rate shall be around 120Mb/s, and to avoid the data transfer bottleneck (see Estimating datarates), we were thinking of leverage the capacities of raspberry (or beaglebone) and such to have shields/capes that can be used and connect through SPI for example to the raspberry where raw data can be processed, and image can be going out, hence a lower rate.
@@ -38,30 +39,30 @@ echopen  is an association who wants to update the stethoscope resting around th
 
 echOpen has to tackle community, research and medical challenges to get all the community around the same table and create the stethoscope of the future: instead of listening to a heart beating, you actually see its beats!
 
-Today, echOpen rests at the heart of Paris, in the historical Hotel-Dieu, with its 10-person core team as well as a community strong of designers, doctors, engineers, Ö and backed by several institutional actors in professional training, the hospitals (APHP), education (ENS, TelecomParis, Ö), electronics, and industry (we won for exemple a mentoring with Thales) .We are financially backed by philantropy and prizes we won. 
+Today, echOpen rests at the heart of Paris, in the historical Hotel-Dieu, with its 10-person core team as well as a community strong of designers, doctors, engineers, ‚Ä¶ and backed by several institutional actors in professional training, the hospitals (APHP), education (ENS, TelecomParis, ‚Ä¶), electronics, and industry (we won for exemple a mentoring with Thales) .We are financially backed by philantropy and prizes we won. 
 
 Here, we developed a [first prototype](http://echopen.org/index.php?title=Category:Emile) as a proof-of-concept, and we are eager to move forward with an integrated device usable for the first clinical tests.
  
 ## Preliminary questions
 ### Why are we making this?
-Because itís fun, it the first step towards medical open hardware based on ultrasounds, so itís an element for echOpen !
-And because existing hardware doesnít come in for low-cost, rough uses.
+Because it‚Äôs fun, it the first step towards medical open hardware based on ultrasounds, so it‚Äôs an element for echOpen !
+And because existing hardware doesn‚Äôt come in for low-cost, rough uses.
 ### Who is this for?
-This element, comprised of the analog part of ultrasound imaging processing, is aiming hackers, makers, Ö all who can have fun prototyping a low-cost ultrasound device.
+This element, comprised of the analog part of ultrasound imaging processing, is aiming hackers, makers, ‚Ä¶ all who can have fun prototyping a low-cost ultrasound device.
 ### How will this be used?
 This shall be used in conjunction with the mechanical unit (motor, encoder, transducer), and plugged into a small processing unit (aka Raspberry, or BeagleBOne Black for exemple)
 ### What features does it need to have (now)?
 Be able to emit a ultrasound pulse at high voltage, and receive a signal, clean it, detect the envelop and ADC it.
 ### What features does it need to have (later)?
-Shifting envelope detection to software once weíre sure the processing works at ìlowî rates.
+Shifting envelope detection to software once we‚Äôre sure the processing works at ‚Äúlow‚Äù rates.
 ### What are the legacy requirements?
 Nothing yet, except a couple of constraints on the use of the tool.
-### Whoís going to build this?
-Makers, doers, academics, Ö can use this. But weíd be happy to go with a PCB assembler at first!
+### Who‚Äôs going to build this?
+Makers, doers, academics, ‚Ä¶ can use this. But we‚Äôd be happy to go with a PCB assembler at first!
 ### How many do we want to make?
 At first, a couple, to prototype it. Once prototyped, this board could be in the hundreds.
 ### What is the timeline?
-BBB investigation had started in September 2015, but following a meetup at echopenís HQ in Paris end of November, it had been activated again.
+BBB investigation had started in September 2015, but following a meetup at echopen‚Äôs HQ in Paris end of November, it had been activated again.
 **The objective is to get a first functional prototype by February 2015.**
 
 ## Technically
@@ -90,10 +91,10 @@ So far, the key issue is a compromise in terms of data output. It's interesting 
  
 ## Parts, ICs selection (and critical specs)
  
-### HV7360:  High Speed, ±100V 2.5A, Two or Three Level Ultrasound Pulser
+### HV7360:  High Speed, ¬±100V 2.5A, Two or Three Level Ultrasound Pulser
 * High density integration AC coupled pulser
-* 0 to ±100V output voltage
-* ±2.5A source and sink minimum pulse current
+* 0 to ¬±100V output voltage
+* ¬±2.5A source and sink minimum pulse current
 * Up to 35MHz operating frequency
 * 2.0ns matched delay times
 * 2.5, 3.3 or 5.0V CMOS logic interface
@@ -101,9 +102,9 @@ So far, the key issue is a compromise in terms of data output. It's interesting 
 
 HV7360 is a high voltage, high-speed, pulse generator with built-in, fast return to zero damping FETs. This high voltage and high-speed integrated circuit is designed for portable medical ultrasound image devices, but can also can be used for NDT and test equipment applications.
 
-The HV7360 consists of a controller logic interface circuit, level translators, AC coupled MOSFET gate drivers and high voltage and high current P-channel and N-channel MOSFETs as the output stage. The peak output currents of each channel are guaranteed to be over ±2.5A with up to ±100V of pulse swing. The AC coupling topology for the gate drivers not only saves two floating voltage supplies, it also makes the PCB layout easier.
+The HV7360 consists of a controller logic interface circuit, level translators, AC coupled MOSFET gate drivers and high voltage and high current P-channel and N-channel MOSFETs as the output stage. The peak output currents of each channel are guaranteed to be over ¬±2.5A with up to ¬±100V of pulse swing. The AC coupling topology for the gate drivers not only saves two floating voltage supplies, it also makes the PCB layout easier.
 ### Protection: MD0100 Datasheet - HV Protection T/R Switch
-* Up to ±100V input voltage protection
+* Up to ¬±100V input voltage protection
 * Low on resistance - 15O typical
 * Fast switching speed
 * Effectively, a simple two terminal device
@@ -111,15 +112,15 @@ The HV7360 consists of a controller logic interface circuit, level translators, 
 
 MD0100 is a high voltage, two terminal, bi-directional, current-limiting protection device. The two terminals are interchangeable. It is designed to protect a low noise receiver from the high voltage transmit pulses in ultrasound applications and is commonly referred to as a T/R (transmit and receive) switch. The MD0100 can be considered as a normally closed switch with a typical switching resistance of 15O that allows small signals to pass.
 
-Once the voltage drop across the two terminals exceeds a nominal value of ±2.0V, the device will start to turn off. In the off state, the MD0100 can withstand up to ±100V across its terminals.
+Once the voltage drop across the two terminals exceeds a nominal value of ¬±2.0V, the device will start to turn off. In the off state, the MD0100 can withstand up to ¬±100V across its terminals.
 
-A small amount of current, typical of 200µA, is allowed to flow through.
+A small amount of current, typical of 200¬µA, is allowed to flow through.
  
 ### TGC : AD8331 (Single VGA with Ultralow Noise Preamplifier and Programmable RIN)
 * Ultralow noise preamplifier
 * 3 dB bandwidth: 120 MHz
 * Low power: 125 mW/channel
-* Wide gain range with programmable postamp (-4.5 dB to +43.5 dB in LO gain mode, 7.5 dB to 55.5 dB in HI gain mode) ñ we can use this with the corresponding on-board jumper
+* Wide gain range with programmable postamp (-4.5 dB to +43.5 dB in LO gain mode, 7.5 dB to 55.5 dB in HI gain mode) ‚Äì we can use this with the corresponding on-board jumper
 * Low output-referred noise: 48 nV/vHz typical
 * Active input impedance matching
 * Optimized for 10-bit/12-bit ADCs : perfect for us
@@ -128,23 +129,23 @@ A small amount of current, typical of 200µA, is allowed to flow through.
 
 The AD8331 is a single channel, ultralow noise, linear-in-dB, variable gain amplifier (VGA). Optimized for ultrasound systems, it is usable as a low noise variable gain element at frequencies up to 120 MHz.
 
-Included is an ultralow noise preamplifier (LNA), an X-AMPÆ VGA with 48 dB of gain range, and a selectable gain postamplifier with adjustable output limiting. The LNA gain is 19 dB with a single-ended input and differential outputs. Using a single resistor, the LNA input impedance can be adjusted to match a signal source without compromising noise performance.
+Included is an ultralow noise preamplifier (LNA), an X-AMP¬Æ VGA with 48 dB of gain range, and a selectable gain postamplifier with adjustable output limiting. The LNA gain is 19 dB with a single-ended input and differential outputs. Using a single resistor, the LNA input impedance can be adjusted to match a signal source without compromising noise performance.
 
 The 48 dB gain range of the VGA makes these devices suitable for a variety of applications. Excellent bandwidth uniformity is maintained across the entire range. The gain control interface provides precise linear-in-dB scaling of 50 dB/V for control voltages between 40 mV and 1 V. Factory trim ensures excellent part-to-part and channel-to-channel gain matching. Differential signal paths result in superb second- and third-order distortion performance and low crosstalk.
 
 ### TGC  Control : SPI DAC : MAX5383
 Controls the TGC
 * 8-Bit Resolution in a Miniature 6-Pin SOT23 Package
-* < 1µA Shutdown Mode
+* < 1¬µA Shutdown Mode
 * Low-Glitch Power-On Reset to Zero DAC Output
 * 3-Wire SPI/QSPI/MICROWIRE-Compatible Interface : perfect for a SPI interface
-* Low 230µA (max) Supply Current
+* Low 230¬µA (max) Supply Current
 
-The MAX5383 low-cost, 8-bit digital-to-analog converters (DACs) in miniature 6-pin SOT23 packages have a simple 3-wire, SPIô/QSPIô/MICROWIREô-compatible serial interface that operates up to 10MHz. The MAX5383 has an internal +2V reference and operates from a +2.7V to +3.6V supply.
+The MAX5383 low-cost, 8-bit digital-to-analog converters (DACs) in miniature 6-pin SOT23 packages have a simple 3-wire, SPI‚Ñ¢/QSPI‚Ñ¢/MICROWIRE‚Ñ¢-compatible serial interface that operates up to 10MHz. The MAX5383 has an internal +2V reference and operates from a +2.7V to +3.6V supply.
 
-The MAX5383 require an extremely low supply current of only 150µA (typ) and provide a buffered voltage output. These devices power up at zero code and remain there until a new code is written to the DAC registers. This provides additional safety for applications that drive valves or other transducers that need to be off on power-up. The MAX5383 include a 1µA, low-power shutdown mode that features software-selectable output loads of 1kO, 100kO, or 1MO to ground.
+The MAX5383 require an extremely low supply current of only 150¬µA (typ) and provide a buffered voltage output. These devices power up at zero code and remain there until a new code is written to the DAC registers. This provides additional safety for applications that drive valves or other transducers that need to be off on power-up. The MAX5383 include a 1¬µA, low-power shutdown mode that features software-selectable output loads of 1kO, 100kO, or 1MO to ground.
 
-### Analog envelop detection: ADL5511 - DC to 6 GHz ENVELOPE AND TruPwrô RMS Detector
+### Analog envelop detection: ADL5511 - DC to 6 GHz ENVELOPE AND TruPwr‚Ñ¢ RMS Detector
 * Envelope tracking RF detector with output proportional to input voltage
 * No balun or external tuning required
 * Input power dynamic range of 47 dB
@@ -153,7 +154,7 @@ The MAX5383 require an extremely low supply current of only 150µA (typ) and prov
 * Envelope delay: 2 ns
 * Single-supply operation: 4.75 V to 5.25 V
 
-The ADL5511 is an RF envelope and TruPwrô rms detector. The envelope output voltage is presented as a voltage that is proportional to the envelope of the input signal. The rms output voltage is independent of the peak-to-average ratio of the input signal.
+The ADL5511 is an RF envelope and TruPwr‚Ñ¢ rms detector. The envelope output voltage is presented as a voltage that is proportional to the envelope of the input signal. The rms output voltage is independent of the peak-to-average ratio of the input signal.
 The rms output is a linear-in-V/V voltage with a conversion gain of 1.9 V/V rms at 900 MHz. The envelope output has a conversion gain of 1.46 V/V at 900 MHz and is referenced to an internal 1.1 V reference voltage, which is available on the EREF pin.
 The ADL5511 can operate from dc to 6 GHz on signals with envelope bandwidths up to 130 MHz.
 
@@ -180,7 +181,7 @@ The 74AC541 and 74ACT541 are octal buffer/line drivers designed to be employed a
 TBD // This part is to be update in a future update, as soon as we get the physical board.
 ## Typical Application
 TBD.
-## Userís Quick-Start Guide
+## User‚Äôs Quick-Start Guide
 TBD // This part is to be update in a future update, as soon as we get the physical board.
 ## Errata
  
