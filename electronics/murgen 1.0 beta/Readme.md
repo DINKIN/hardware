@@ -21,7 +21,10 @@ That’s cool, and if you want to learn more (apart from this Readme), you can s
 
 # TOC
 
-[TOC]
+     murgen 1.0 beta/					main repo
+     |-- datasheets						for key elements
+     |-- gerbers						to build the cape
+     `-- images							for documentation
 
 # Project introduction
 ## Brief
