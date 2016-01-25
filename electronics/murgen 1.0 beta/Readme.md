@@ -19,12 +19,13 @@ That’s cool, and if you want to learn more (apart from this Readme), you can s
 
 **Disclaimer #2**: ultrasound raises questions. In case you build a scanner, use caution and good sense!
 
-# TOC
+# Folders
 
      murgen 1.0 beta/					main repo
      |-- datasheets						for key elements
+     |-- bonus						     a smaller board : a pulser receiver
      |-- gerbers						to build the cape
-     `-- images							for documentation
+     `-- images						for documentation
 
 # Project introduction
 ## Brief
