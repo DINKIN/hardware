@@ -3,7 +3,7 @@ _The hardware design process is fraught with pitfalls, from library component sk
 
 ### What is this project?
 
-This project is born from a fork from the [echOpen](echopen.org) project (which aims at providing a low cost, open source ultrasound tool for doctors), with a specific target of **providing a technological kit to allow scientists, academics, hackers, makers or OSH fans to hack their way to ultrasound imaging**.
+This project is born from a fork from the [echOpen](http://www.echopen.org) project (which aims at providing a low cost, open source ultrasound tool for doctors), with a specific target of **providing a technological kit to allow scientists, academics, hackers, makers or OSH fans to hack their way to ultrasound imaging**.
 
 Today, **we have achieved the electronic design of the kit and are having it made by a PCB Assembly** – someone to actually assemble the probe, and we're waiting for a first prod so that **we can physically test it with our in house transducer**.
 
