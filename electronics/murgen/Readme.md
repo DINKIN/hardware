@@ -10,8 +10,8 @@ Today, **we have achieved the electronic design of the kit and are having it mad
 That’s cool, and if you want to learn more (apart from this Readme), you can surf the internet and  :
 
 - Read the the [Blog](https://murgen.echopen.org) of the fork !
-- Explore [echOpen’s general wiki](echopen.org)
-- Suscribe to the mailing list at all @ murgen.echopen.org
+- Explore [echOpen’s general wiki](http://www.echopen.org)
+- Suscribe to the mailing list at all@murgen.echopen.org
 - Or wander around the rest of our [GitHub repo](github.com/echopen)
 
 ### Disclaimers
@@ -26,7 +26,7 @@ That’s cool, and if you want to learn more (apart from this Readme), you can s
 	 |-- BOM						that's ... well.. for the BOM
      |-- Gerbers					to build the cape
      `-- Images						for documentation
-
+e
 You will also find the CHANGES.TXT, CONTRIB.TXT and LICENSE.TXT at the root.
 	 
 # Project introduction
