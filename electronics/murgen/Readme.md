@@ -26,7 +26,7 @@ That’s cool, and if you want to learn more (apart from this Readme), you can s
 	 |-- BOM						that's ... well.. for the BOM
      |-- Gerbers					to build the cape
      `-- Images						for documentation
-e
+
 You will also find the CHANGES.TXT, CONTRIB.TXT and LICENSE.TXT at the root.
 	 
 # Project introduction
@@ -48,6 +48,17 @@ echOpen has to tackle community, research and medical challenges to get all the 
 Today, echOpen rests at the heart of Paris, in the historical Hotel-Dieu, with its 10-person core team as well as a community strong of designers, doctors, engineers, … and backed by several institutional actors in professional training, the hospitals (APHP), education (ENS, TelecomParis, …), electronics, and industry (we won for exemple a mentoring with Thales) .We are financially backed by philantropy and prizes we won. 
 
 Here, we developed a [first prototype](http://echopen.org/index.php?title=Category:Emile) as a proof-of-concept, and we are eager to move forward with an integrated device usable for the first clinical tests.
+
+## A bit more context
+### The board
+The board in itself is not a medical device. The board is a dev kit for the analog part that one could find in any ultrasound probe. It respects the functions and blocks one can find in basically any probe (pulser, TGC, ADC, ..). A main difference is that this board is designed for a single element, and provides so far only a minimal support for the mechanics behind image formation.
+
+Having a single element allows for more space, less density, and to go straight to a regular, though relatively high-speed ADC.
+
+### The Process
+None of us had already done an electronic product, so the process in not that of an experienced team, and we're learning on all the fields: writing down an idea, analysing it, structuring it, develop the plans, build it, test it, build the software.. Rince and repeat.
+
+The most challenging part, and somewhere the easiest, will be to allow anyone with little or no experience to replicate our efforts, and to build another copy of the board. Why is that so? With fresh eyes, that's easier to understand what the blocking points could be, what needs to be detailed, and how.
  
 ## Preliminary questions
 ### Why are we making this?
