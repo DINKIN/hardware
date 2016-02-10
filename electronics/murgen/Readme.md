@@ -34,6 +34,7 @@ You will also find the CHANGES.TXT, CONTRIB.TXT and LICENSE.TXT at the root.
 In October 2015, we were working on a open-source ultrasound imaging device, and had started to get some result. However, we were facing a bottleneck that is data acquisition and transfer.
 
 Roughly, the aim of the device is to excite a 3.5MHz piezo through a 100V or more, 0.2µs, signal to acquire a signal coming from the echoes.
+
 Once it comes back from the transducer, one needs to cap it, amplify it, filter it, apply a time variable gain to the signal, have it get through a high speed ADC (40MHz at least), and serve it to the the processing unit (through PINs, SPI, USB ?), possibly with a CPLD/FPGA (or DSP / microcontroler ?) in between.
 
 As the data we have should have at least 16 imgs / sec, with 64 lines, the rate shall be around 120Mb/s, and to avoid the data transfer bottleneck (see Estimating datarates), we were thinking of leverage the capacities of raspberry (or beaglebone) and such to have shields/capes that can be used and connect through SPI for example to the raspberry where raw data can be processed, and image can be going out, hence a lower rate.
@@ -91,16 +92,30 @@ The present project aims at taking care of (1), (4) and (5) - meaning amm electr
 
 ![A full block diagram - Murgen will focus on B-mode imaging](http://echopen.org/images/d/db/15.jpg)
 
+### Narrative of the flow
+Since we're using a single sensor (not an array of sensor, as those are used in "regular" machines), we don't have the Beamforming parts. The sensor is similar to a speaker, in the sense that it can be used to generate an acoustic signal from electricity, and vice versa. The flow is therefore as follows:
+- A pulse generator generates a high negative voltage pulse, which is as low as possible and to excite the transducer (or crystal), which will resonate at his central frequency. In our case, this is 3.5MHz, but that depends on the transducer being used.
+- A signal will come back through the echoes, the reverberation of the acoustic waves on "obstacles", exciting the transducer, having it generate an electric signal.
+- This will be prepared by a switch. Indeed, the signal needs to be separated from the excitation. Excitation being at -150V, the signal coming back will be in mV - and it needs to be isolated.
+- The signal usually goes through a LNA - low noise amplifier - to be amplified
+- then it's processed by a TGC to compensate for signal attenuation. Indeed, the deeper the echoes come back from, the more attenuated they are, and this needs to be corrected.
+- An AAF (Anti-Alias Filte) can be put in between, and in the case of the first Murgen release, we also include an enveloppe detection: indeed, echoes are signals that are coming from a couple of ultrasound periods reflected on interfaces, and what interests us is not (at first) the signal itself, rather the enveloppe of it.
+- The "cleaned" signal goes through an ADC to be digitalized
+- this is output to buffers, in our case to protect the BBB GPIOs.
+
 ### Data rates and key figures
 
-- We're aiming at **128 lines/image** may be enough at first - at **16 imgs/s** -- --- thats 2048 lines/s
--- That's 488us per line
-- (15.77 cm x 2) / (154000 cm/s) = 204.805 us - that's 1024 pts at 5MHz
+- We're aiming at **128 lines/image** - that may be enough at first 
+- at **16 imgs/s**, that's 2048 lines/s
+-- That's 488us per line (for everything: 
+- Let's image no further than 15.77cm deep.. Why? Because :
+-- (15.77 cm x 2) / (154000 cm/s) = 204.805 us 
+-- that's 1024 pts at 5MHz
 -- That's **204.805 us** per line
--- That's **283.5 us** of idle time
+-- That's **283.5 us** of idle time - kept for processing, and whatnots
 - Final image is therefore **128*1024 px**
 -- 1024 pts for 15.77cm is 6.49px / mm
--- That's 2.1Msps on average or 24Mbit/s.. borderline for data transfer on certain systems.
+-- That's also 2.1Msps on average or 24Mbit/s.. borderline for data transfer on certain systems.
 
 ### Discussion of Essential Features/Trade-offs
 
