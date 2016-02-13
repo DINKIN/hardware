@@ -83,6 +83,43 @@ At first, a couple, to prototype it. Once prototyped, this board could be in the
 BBB investigation had started in September 2015, but following a meetup at echopen’s HQ in Paris end of November, it had been activated again.
 **The objective is to get a first functional prototype by February 2015.**
 
+## Requirements to build the board
+
+### BOM
+
+In the BOM folder !
+
+### At the fab
+
+#### PCB 
+
+A 4-layer PCB.. not so cheap, but at the same time..
+
+#### Fab
+
+Lots around... choose what you want =)
+
+#### Links
+
+PCB Makers
+- seeedstudio.com
+- PCBshopper.com
+PCBA abroad :
+- myropcb
+- nortechsys
+- SeeedStudio only north america
+PCBA in france:
+- Quad Ind
+- PCB-Pool
+- EdgeFlex
+
+### Costs
+
+With the french fab we're working with, costs sum to 160e, and they are split as follows, prices being without taxes:
+- PCB : 7.34e (but there are overcosts to produce the masks, ...)
+- Components : 143.5e and T1-6T-KK81+ (sold by 10): 9.34 each, but can come down to 140e with some volume.
+In this case, assembly is close to 120e.
+
 ## Technically
 ### Principles of echography
 Basically, echography means plotting echoes. It means we have to create a sound pulse (2), use a good sensor (2), find a way to transform a 1D signal to a 2D image (3), listen to the echoes coming back, cleaning them and  processing them to create an image the way a bat would do (4), and to transmit them to a display (5). 5 steps.
