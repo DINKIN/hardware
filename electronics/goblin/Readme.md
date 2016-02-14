@@ -1,7 +1,7 @@
 # What ?
 A bonus to [Murgen](https://github.com/echopen/hardware/tree/master/electronics/murgen)
 
-It was originally a simplified version of Murgen, shifted it to a separate product to make some space - a goodies of sorts =)
+Goblin was originally an alternative version of Murgen, shifted it to a separate product to make some space - a goodies of sorts =)
 
 # People ! 
 ## Acknowledgement
