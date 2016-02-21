@@ -1,6 +1,6 @@
 # Relocation!
 
-> Now on http://github.com/echopen/murgen-dev-kit/murgen/
+> Now on http://github.com/echopen/murgen-dev-kit/
 
 
 # More info ?
